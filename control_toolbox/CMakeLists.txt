@@ -38,6 +38,7 @@ add_library(control_toolbox SHARED
   src/sine_sweep.cpp
   src/sinusoid.cpp
 )
+set_target_properties(control_toolbox PROPERTIES OUTPUT_NAME control_toolbox_legacy_5_6)
 target_compile_features(control_toolbox PUBLIC cxx_std_17)
 target_include_directories(control_toolbox PUBLIC
   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
@@ -232,6 +233,7 @@ if(BUILD_TESTING)
 endif()
 
 # Install
+install(FILES ../LICENSE ../LICENSE.BSD-3-clause DESTINATION share/${PROJECT_NAME})
 install(
   DIRECTORY include/
   DESTINATION include/control_toolbox
